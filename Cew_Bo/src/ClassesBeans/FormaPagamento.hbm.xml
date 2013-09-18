@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/08/2013 19:11:44 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="ClassesBeans.FormaPagamento" table="forma_pagamento" catalog="cew_new">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="30" />
+        </property>
+        <set name="vendas" inverse="true">
+            <key>
+                <column name="ID_FORMA_PAGAMENTO" />
+            </key>
+            <one-to-many class="ClassesBeans.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>
